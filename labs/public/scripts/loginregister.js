@@ -1,11 +1,11 @@
 $(document).ready(function ()
 {
-    //what the logout button does
+    //what the logout button does on the login page
     $('#logout').on('click', () =>
     {
         document.location.href = "/";
     });
-    //login button functions
+    //login form post
     $('#loginForm').on('submit', (e) =>
     {
         e.preventDefault();
@@ -55,9 +55,34 @@ $(document).ready(function ()
             });
         $('#msgDiv').show();
     });
-    //go to leagues page
+    //go to leagues page from the login page
     $('#toleagues').on("click", function ()
     {
         document.location.href = "/leagues";
+    })
+
+    //register form post, username, email, password
+    $("#registerForm").on("submit", (e) =>
+    {
+        e.preventDefault();
+
+        let data = {
+            "username": $("#username").val(),
+            "email": $("#email").val(),
+            "password": $("#password").val()
+        };
+
+        $.post("http://localhost:3000/users/register", data, function ()
+        {
+        })
+            .done(function (res)
+            {
+                document.location.href = "/users/login";
+                console.log("they're registered");
+            })
+            .fail(function()
+            {
+                console.log("register didn't work");
+            })
     })
 });

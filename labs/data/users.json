@@ -8,5 +8,20 @@
         "username": "Megan",
         "email": "megan@mail.com",
         "password": "password"
+    },
+    {
+        "username": "Peggy",
+        "email": "peggy@mail.com",
+        "password": "password"
+    },
+    {
+        "username": "Bob",
+        "email": "bob@mail.com",
+        "password": "password"
+    },
+    {
+        "username": "Jenny",
+        "email": "jenny@mail.com",
+        "password": "password"
     }
 ]
