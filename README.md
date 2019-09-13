@@ -1,0 +1,1 @@
+This is the readme for Labs 2 and 3. It will use Express Generator to recreate my Capstone project with the addition of both login and register pages.
