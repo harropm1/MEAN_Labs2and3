@@ -1,37 +1,56 @@
 var express = require('express');
 var router = express.Router();
 
-/* GET login page. */
-router.get('/login', function(req, res, next) {
+var auth = require('./../utils/auth');
+
+// GET login page.
+router.get('/login', function (req, res, next)
+{
   res.render('login', { title: 'West Hartford Cares - Login' });
 });
 
-/* GET register page. */
-router.get('/register', function(req, res, next) {
+// GET register page.
+router.get('/register', function (req, res, next)
+{
   res.render('register', { title: 'West Hartford Cares - Register' });
 });
 
 //this is the post for the login page (/users/login)
-router.post('/login', function(request, response) {
+router.post('/login', function (request, response)
+{
   // get user data from form
   var username = request.body.username;
   var password = request.body.password;
-  console.log(username);
-  console.log(password);
-  response.statusCode = 200;
+
+  //run through authorization on other page
+  if (auth.authUser(username, password))
+  {
+    response.statusCode = 200;
+  }
+  else
+  {
+    response.statusCode = 403;
+  }
   response.end();
 });
 
 //this is the post for the register page (/users/register)
-router.post('/register', function(request, response) {
+router.post('/register', function (request, response)
+{
   // get user data from form
   var username = request.body.username;
   var email = request.body.email;
   var password = request.body.password;
-  console.log(username);
-  console.log(email);
-  console.log(password);
-  response.statusCode = 200;
+
+  //run through authorization on other page
+  if (auth.insertUser(username, email, password))
+  {
+    response.statusCode = 200;
+  }
+  else
+  {
+    response.statusCode = 403;
+  }
   response.end();
 });
 module.exports = router;
