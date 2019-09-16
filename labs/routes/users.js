@@ -25,10 +25,12 @@ router.post('/login', function (request, response)
 	//run through authorization on other page
 	if (auth.authUser(username, password))
 	{
+		request.session.username = username;
 		response.statusCode = 200;
 	}
 	else
 	{
+		request.session.username = null;
 		response.statusCode = 403;
 	}
 	response.end();
@@ -53,4 +55,10 @@ router.post('/register', function (request, response)
 	}
 	response.end();
 });
+
+router.get('/logout', function(req, res, next)
+{
+	req.session.username = null;
+	res.redirect('/');
+})
 module.exports = router;

@@ -135,7 +135,7 @@
 					]
 				},
 				"url": {
-					"raw": "http://localhost:3000/users/login?username=Michelle&password=password",
+					"raw": "http://localhost:3000/users/login",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -144,16 +144,6 @@
 					"path": [
 						"users",
 						"login"
-					],
-					"query": [
-						{
-							"key": "username",
-							"value": "Michelle"
-						},
-						{
-							"key": "password",
-							"value": "password"
-						}
 					]
 				}
 			},
