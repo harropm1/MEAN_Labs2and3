@@ -23,5 +23,10 @@
         "username": "Jenny",
         "email": "jenny@mail.com",
         "password": "password"
+    },
+    {
+        "username": "Kenzi",
+        "email": "kenzi@mail.com",
+        "password": "password"
     }
 ]

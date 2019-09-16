@@ -17,19 +17,16 @@
             <form id="loginForm" name="loginForm" method="GET">
                 <fieldset class="container border border-secondary p-3 rounded col-6">
                     <legend class="font-weight-light bg-secondary text-center text-white w-50 rounded">Log In</legend>
-                        <div class="form-group">
-                            <label for="username">User Name</label>
-                            <input type="text" class="form-control" id="username" name="username" value="" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="password">Password</label>
-                            <input type="password" class="form-control" id="password" name="password" value="" required>
-                        </div>
-                        <!--buttons to login, go to leagues, and go back-->
-                        <button type="submit" class="btn btn-light blueBackground" id="login">Log In!</button>
-                        <button type="button" class="btn btn-light blueBackground hidden" id="toleagues">Go to
-                            Leagues</button>
-                        <button type="button" class="btn btn-primary hidden" id="logout">Log Out</button>
+                    <div class="form-group">
+                        <label for="username">User Name</label>
+                        <input type="text" class="form-control" id="username" name="username" value="" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="password">Password</label>
+                        <input type="password" class="form-control" id="password" name="password" value="" required>
+                    </div>
+                    <!--button to login-->
+                    <button type="submit" class="btn btn-light blueBackground" id="login">Log In!</button>
                 </fieldset>
             </form>
             <div id="msgDiv"></div>
