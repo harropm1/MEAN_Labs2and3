@@ -1,10 +1,5 @@
 $(document).ready(function ()
 {
-    //what the logout button does on the login page
-    $('#logout').on('click', () =>
-    {
-        document.location.href = "/";
-    });
     //login form post
     $('#loginForm').on('submit', (e) =>
     {
@@ -20,7 +15,9 @@ $(document).ready(function ()
         })
             .done(function (res)
             {
-                document.location.href = "/leagues"
+                sessionStorage.setItem("loggedIn", "yes");
+                document.location.href = "/leagues";
+                console.log(sessionStorage);
             })
             .fail(function (e)
             {
@@ -42,11 +39,6 @@ $(document).ready(function ()
             });
         $('#msgDiv').show();
     });
-    //go to leagues page from the login page
-    $('#toleagues').on("click", function ()
-    {
-        document.location.href = "/leagues";
-    })
 
     //register form post, username, email, password
     $("#registerForm").on("submit", (e) =>

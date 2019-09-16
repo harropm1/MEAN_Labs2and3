@@ -6,6 +6,24 @@
 */
 $(function ()
 {
+    if (sessionStorage.getItem('loggedIn') == 'yes')
+    {
+        $("#login").hide();
+        $("#signup").hide();
+        $("#logout").show();
+    }
+    else 
+    {
+        document.location.href = "/users/login";
+    }
+
+    $('#logout').on('click', () =>
+    {
+        sessionStorage.setItem("loggedIn", "no");
+        document.location.href = "/";
+        console.log(sessionStorage);
+    });
+
     let league;
 
     $("thead").hide();
