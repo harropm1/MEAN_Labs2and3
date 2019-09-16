@@ -20,19 +20,7 @@ $(document).ready(function ()
         })
             .done(function (res)
             {
-                $('#msgDiv').removeClass('alert-danger');
-                $('#msgDiv').addClass('alert-success');
-                $('#msgDiv').html('Success!');
-
-                $('#username').val('');
-                $('#username').attr("disabled", true);
-                $('#password').val('');
-                $('#password').attr("disabled", true);
-
-                $('#login').hide();
-                $('#toleagues').show();
-                $('#toleagues').focus();
-                $('#logout').show();
+                document.location.href = "/leagues"
             })
             .fail(function (e)
             {
@@ -49,7 +37,6 @@ $(document).ready(function ()
                     $('#msgDiv').html(`Error: ${e.status}`);
                 }
 
-                $('#msgDiv').removeClass('alert-success');
                 $('#msgDiv').addClass('alert-danger');
                 $('#username').focus();
             });
@@ -78,11 +65,10 @@ $(document).ready(function ()
             .done(function (res)
             {
                 document.location.href = "/users/login";
-                console.log("they're registered");
             })
             .fail(function()
             {
-                console.log("register didn't work");
+                $("#msgDiv").html("That username or password is already in use. Please use a different username/password.")
             })
     })
 });
